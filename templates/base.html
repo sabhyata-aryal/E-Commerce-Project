@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Nature Touch{% endblock %}</title>
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="{% static 'CSSnatureTouch/mystyle.css' %}">
+
+  {% block meta %}{% endblock %}
+</head>
+
+<body style="font-family: 'Poppins', sans-serif; background-color: #fafafa;">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom shadow-sm fixed-top">
+    <div class="container-fluid px-3 px-md-4">
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="{% static 'images/logo.png' %}" alt="Nature Touch Logo" class="navbar-logo me-2 img-fluid"
+          style="max-height: 40px" />
+        <span class="fw-bold d-none d-sm-inline">Nature Touch Matka</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end mt-3 mt-lg-0" id="navbarNav">
+        <ul class="navbar-nav align-items-lg-center text-center text-lg-start">
+          <li class="nav-item"><a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link {% if '/shop/liquor/' in request.path %}active{% endif %}"
+              href="/shop/liquor/">Liquor Store</a></li>
+          <li class="nav-item"><a class="nav-link {% if '/shop/meat/' in request.path %}active{% endif %}"
+              href="/shop/meat/">Meat Shop</a></li>
+          <li class="nav-item"><a class="nav-link {% if '/restaurant/' in request.path %}active{% endif %}"
+              href="/restaurant/">Restaurant</a></li>
+          <li class="nav-item"><a class="nav-link {% if '/stay/' in request.path %}active{% endif %}"
+              href="/stay/">Overnight Stay</a></li>
+          <li class="nav-item position-relative">
+            <a class="nav-link nav-cart {% if request.path == '/cart/' %}active{% endif %}" href="/cart/">
+              Cart
+              <span id="cart-count"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{ cart_count|default:"0" }}
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Page Content -->
+  <main class="container-fluid px-0">
+    {% block content %}{% endblock %}
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="footer-custom py-5 mt-auto border-top">
+    <div class="container-fluid px-3 px-md-4">
+      <div class="row text-center text-md-start align-items-center gy-4">
+        <!-- Map -->
+        <div class="col-12 col-md-4">
+          <h5 class="mb-3"><i class="bi bi-geo-alt-fill me-2"></i>Find Us</h5>
+          <div class="ratio ratio-4x3 rounded-3 overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1414.4863425554713!2d83.78427015569709!3d27.48394232910292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39943d001aead195%3A0xe40fc0208a6d7ef2!2sNature%20Touch%20Cottage%20Restaurant%20and%20lodge%20(MATKA%2FTANDOORI)!5e0!3m2!1sen!2snp!4v1760453863717!5m2!1sen!2snp"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="col-12 col-md-4 text-center text-md-center">
+          <h5 class="mb-3">Contact Us</h5>
+          <p class="mb-1">
+            <a href="mailto:naturetouchmatkarestro@gmail.com" class="text-decoration-none"><i
+                class="bi bi-envelope-open-fill me-1"></i> naturetouchmatkarestro@gmail.com</a>
+          </p>
+          <p class="mb-1">
+            <a href="tel:01-078590076" class="text-decoration-none"><i class="bi bi-telephone-fill me-1"></i>
+              01-078590076</a>
+          </p>
+          <p>
+            <a href="tel:+977-9869333144" class="text-decoration-none"><i class="bi bi-telephone-fill me-1"></i>
+              +977-9869333144</a>
+          </p>
+        </div>
+
+        <!-- About / Branding -->
+        <div class="col-12 col-md-4 text-center text-md-center">
+          <h5 class="mb-1">Nature Touch Matka</h5>
+          <h6 class="mt-0">Tandoori Restaurant & Resort</h6>
+          <small class="text-muted d-block mt-3">© {% now "Y" %} Nature Touch — All rights reserved</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast container -->
+  <div id="toast-container" style="position: fixed; bottom: 1rem; right: 1rem; z-index: 1080;"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
+
+  <!-- Custom JS: Cart update & Toast -->
+  <script>
+    function updateCartBadge(count) {
+      const cartCount = document.getElementById('cart-count');
+      if (cartCount) cartCount.textContent = count;
+    }
+
+    function showToast(message, isError = false) {
+      const toastContainer = document.getElementById('toast-container');
+      const toastEl = document.createElement('div');
+      toastEl.className = 'toast align-items-center text-white border-0 show';
+      toastEl.style.minWidth = '250px';
+      toastEl.style.marginTop = '0.5rem';
+      toastEl.setAttribute('role', 'alert');
+      toastEl.setAttribute('aria-live', 'assertive');
+      toastEl.setAttribute('aria-atomic', 'true');
+      toastEl.style.backgroundColor = isError ? '#dc3545' : '#28a745';
+      toastEl.innerHTML = `
+        <div class="d-flex">
+          <div class="toast-body">${message}</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>`;
+      toastContainer.appendChild(toastEl);
+      const bsToast = new bootstrap.Toast(toastEl, { delay: 3000 });
+      bsToast.show();
+      toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.add-to-cart-form').forEach(form => {
+        form.addEventListener('submit', async e => {
+          e.preventDefault();
+          const formData = new FormData(form);
+          const action = form.getAttribute('action');
+          try {
+            const response = await fetch(action, {
+              method: 'POST',
+              body: formData,
+              headers: { 'X-Requested-With': 'XMLHttpRequest' }
+            });
+            const data = await response.json();
+            if (data.success) {
+              updateCartBadge(data.cart_count);
+              showToast(`Added to cart (${data.cart_count} items)`);
+            } else showToast('Failed to add item. Try again.', true);
+          } catch {
+            showToast('Network error. Try again later.', true);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

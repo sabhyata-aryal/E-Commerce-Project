@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Redirecting to eSewa...</title>
+    <meta http-equiv="refresh" content="3">
+</head>
+
+<body onload="document.getElementById('esewaForm').submit()">
+    <h3 style="text-align:center;">Redirecting to eSewa Sandbox...</h3>
+
+    <form id="esewaForm" action="https://uat.esewa.com.np/epay/main" method="POST">
+        <input value="{{ amount }}" name="tAmt" type="hidden">
+        <input value="{{ tax_amount }}" name="txAmt" type="hidden">
+        <input value="{{ total_amount }}" name="amt" type="hidden">
+        <input value="0" name="psc" type="hidden">
+        <input value="0" name="pdc" type="hidden">
+        <input value="{{ merchant_code }}" name="scd" type="hidden">
+        <input value="{{ product_code }}" name="pid" type="hidden">
+        <input value="{{ success_url }}" name="su" type="hidden">
+        <input value="{{ failure_url }}" name="fu" type="hidden">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ category.name }} - Nature Touch{% endblock %}
+
+{% block content %}
+<div class="text-center px-3">
+    <h1 class="fw-bold mb-4">{{ category.name }}</h1>
+
+    <div class="mb-4">
+        <h5>Categories:</h5>
+        {% for cat in categories %}
+        <a href="/shop/{{ cat.slug }}/" class="btn btn-outline-primary btn-sm m-1">{{ cat.name }}</a>
+        {% endfor %}
+        <a href="/shop/" class="btn btn-secondary btn-sm m-1">View All Products</a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+        {% for product in products %}
+        <div class="col">
+            <div class="card shadow-sm h-100">
+                <a href="/shop/product/{{ product.id }}/" class="text-decoration-none text-dark">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
+                    {% else %}
+                    <img src="https://via.placeholder.com/300x200?text=No+Image" class="card-img-top img-fluid"
+                        alt="No image">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text text-success fw-bold">Rs. {{ product.price }}</p>
+                        <p class="card-text text-muted small">{{ product.description|truncatechars:80 }}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-muted">No products found in this category.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

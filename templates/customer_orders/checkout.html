@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout - Nature Touch{% endblock %}
+
+{% block content %}
+<div class="container px-3">
+  <h2 class="fw-bold text-center mb-4">Checkout</h2>
+
+  <form method="POST" action="">
+    {% csrf_token %}
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6">
+        <div class="card p-4 shadow-sm">
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="name" class="form-control w-100" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input type="email" name="email" class="form-control w-100" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="text" name="phone" class="form-control w-100" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Delivery Address</label>
+            <textarea name="address" class="form-control w-100" rows="3" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Payment Method</label><br>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="payment_method" value="cod" id="cod" checked>
+              <label class="form-check-label" for="cod">Cash on Delivery (COD)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="payment_method" value="esewa" id="esewa">
+              <label class="form-check-label" for="esewa">Pay via eSewa (Demo)</label>
+            </div>
+          </div>
+
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success px-4 py-2 w-100 w-md-auto">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

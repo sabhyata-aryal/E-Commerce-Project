@@ -1,0 +1,297 @@
+/* === GLOBAL RESET & BASE === */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  padding-top: 72px;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 3rem; /* keep content above footer */
+}
+
+a {
+  color: #3B7040;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #2E5530;
+}
+
+/* === NAVBAR === */
+.navbar-custom {
+  background-color: #DCCEC0;
+  padding: 0.75rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.navbar-nav .nav-link {
+  color: #4A4A4A;
+  font-weight: 500;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+  color: #3B3B3B;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* === CART BADGE === */
+.nav-cart {
+  background-color: #C8B9AA;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.nav-cart:hover {
+  background-color: #BFAF9E;
+  transform: translateY(-2px);
+}
+
+/* === FEATURED PRODUCTS === */
+.featured-scroll-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+}
+
+.featured-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  scroll-behavior: smooth;
+}
+
+.featured-scroll .card {
+  width: 270px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-scroll .card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.card-img-wrapper {
+  height: 250px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.hover-card:hover .product-image {
+  transform: scale(1.06);
+}
+
+/* === PRODUCT CARDS (MEAT/LIQUOR) === */
+.row.g-4 {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background-color: #fff;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+}
+
+.btn-outline-success {
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* === LIQUOR & MEAT SUBCATEGORY === */
+.subcat-card {
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.subcat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+/* === RESTAURANT MENU === */
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.menu-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.menu-item h5 {
+  flex: 1;
+  font-weight: 600;
+  margin: 0;
+}
+.menu-item .price {
+  color: #3b7040;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* === CHECKOUT & CART === */
+.container,
+.container-fluid {
+  max-width: 1200px;
+}
+.card.p-4 {
+  border-radius: 1rem;
+  background: #fff;
+}
+form .form-label {
+  font-weight: 500;
+}
+.btn-success {
+  background-color: #3b7040;
+  border: none;
+}
+.btn-success:hover {
+  background-color: #2f5835;
+}
+
+/* === FOOTER === */
+footer {
+  background: #E8F5E9;
+  color: #000;
+  font-size: 0.9rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+footer a {
+  color: #000;
+}
+footer a:hover {
+  color: #3B7040;
+}
+footer iframe {
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================================
+   EXPLORE BUTTONS (Restore Original Design)
+   ========================================================= */
+
+.btn-explore,
+.btn-explore-alt,
+.explore-buttons .btn {
+  display: inline-block;
+  font-weight: 600;
+  padding: 10px 26px;
+  border-radius: 30px;
+  border: 2.5px solid #3B7040;
+  color: #3B7040;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-explore:hover,
+.btn-explore-alt:hover,
+.explore-buttons .btn:hover {
+  background-color: #3B7040;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Lighter alternate tone for Explore More section */
+.btn-explore-alt {
+  border-color: #A3B899;
+  color: #A3B899;
+}
+
+.btn-explore-alt:hover {
+  background-color: #A3B899;
+  color: #fff;
+}
+
+/* Section styling */
+.explore-more {
+  background-color: #F7F6F3;
+  padding: 3rem 1rem;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.explore-more h2 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #3B3B3B;
+}
+
+.explore-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* === RESPONSIVENESS === */
+@media (max-width: 768px) {
+  .card-img-top { height: 160px; }
+  .card-body h5 { font-size: 0.95rem; }
+  .featured-scroll .card { width: 240px; }
+  .featured-scroll { gap: 1rem; }
+}
+@media (max-width: 576px) {
+  .menu-item { flex-wrap: wrap; text-align: center; }
+  .menu-item img { width: 50px; height: 50px; }
+  .menu-item form { width: 100%; display: flex; justify-content: center; }
+}

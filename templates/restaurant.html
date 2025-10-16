@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Restaurant Menu - Nature Touch{% endblock %}
+
+{% block content %}
+
+<div class="text-center mb-4">
+  <h1 class="fw-bold">Restaurant Menu</h1>
+</div>
+
+
+<!-- Menu Items -->
+<div class="container">
+  {% if menu_items %}
+  {% regroup menu_items by subcategory as grouped_items %}
+  {% for group in grouped_items %}
+  <div class="menu-section">
+    <h2 style="color: brown;">{{ group.grouper.name }}</h2>
+    {% for item in group.list %}
+    <div class="menu-item">
+      <h5>{{ item.name }}</h5>
+      <p class="price">Rs. {{ item.price }}</p>
+      <form action="{% url 'add_to_cart' item.id %}" method="post" class="add-to-cart-form">
+        {% csrf_token %}
+        <input type="hidden" name="quantity" value="1">
+        <button class="btn btn-outline-success btn-sm">Add to Cart</button>
+      </form>
+      {% if item.image %}
+      <img src="{{ item.image.url }}" alt="{{ item.name }}">
+      {% else %}
+      <img src="{% static 'images/no-image.jpg' %}" alt="No image available">
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  {% else %}
+  <p class="text-center text-muted">Sorry, we currently don't have any items in this category.</p>
+  {% endif %}
+</div>
+{% endblock %}
