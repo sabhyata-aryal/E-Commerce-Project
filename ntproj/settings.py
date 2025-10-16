@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-ALLOWED_HOSTS = ["naturetouch-6ztf.onrender.com"]
+ALLOWED_HOSTS = ["naturetouch.onrender.com"]
 
 
 from pathlib import Path
