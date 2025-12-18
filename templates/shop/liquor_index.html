@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Liquor Store - Nature Touch{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">Liquor Store</h1>
+
+<div class="row g-2">
+  {% for subcat in subcats %}
+  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+    <a href="{% url 'liquor_subcategory' subcat.slug %}" class="card text-decoration-none text-dark">
+      <div class="card-body">
+        <h5 class="card-title">{{ subcat.name }}</h5>
+      </div>
+    </a>
+  </div>
+  {% empty %}
+  <p>No liquor subcategories configured. Create them in admin.</p>
+  {% endfor %}
+</div>
+{% endblock %}

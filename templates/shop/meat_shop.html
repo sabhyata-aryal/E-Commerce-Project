@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Meat Shop - Nature Touch{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-center fw-bold">Meat Shop</h1>
+
+<div class="row g-3 justify-content-center">
+  {% for subcat in subcats %}
+  <div class="col-6 col-md-4 col-lg-3">
+    <a href="{% url 'meat_subcategory' subcat.slug %}" 
+       class="card text-decoration-none text-dark border-0 shadow-sm h-100 subcat-card">
+      <div class="card-body d-flex align-items-center justify-content-center p-3">
+        <h6 class="fw-semibold mb-0">{{ subcat.name }}</h6>
+      </div>
+    </a>
+  </div>
+  {% empty %}
+  <p class="text-center text-muted mt-4">No meat subcategories available. Add them from admin.</p>
+  {% endfor %}
+</div>
+
+{% endblock %}

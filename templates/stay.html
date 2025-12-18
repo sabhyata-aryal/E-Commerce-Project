@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Overnight Stay - Nature Touch{% endblock %}
+
+{% block content %}
+<div class="container py-5 px-3">
+  <h1 class="text-center fw-bold mb-4 text-success">Overnight Stay</h1>
+  <p class="text-center text-muted mb-5">
+    Enjoy comfort and nature together — choose from our cozy rooms or book a space for your events.
+  </p>
+
+  <!-- Rooms Section -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+    <!-- Room 1 -->
+    <div class="col">
+      <div class="card h-100 border-0 shadow-sm rounded-4 hover-card">
+        <img src="{% static 'images/room1.jpg' %}" class="card-img-top" alt="AC Room - 1 Double, 1 Single Bed">
+        <div class="card-body">
+          <h5 class="fw-semibold">AC Room (1 Double + 1 Single Bed)</h5>
+          <p class="text-muted small mb-2">
+            Attached bathroom, air-conditioned comfort, perfect for small families or friends.
+          </p>
+          <p class="text-success fw-bold mb-3">Rs. 1500 / night</p>
+          <a href="/orders/checkout/" class="btn btn-outline-success w-100">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Room 2 -->
+    <div class="col">
+      <div class="card h-100 border-0 shadow-sm rounded-4 hover-card">
+        <img src="{% static 'images/room2.jpg' %}" class="card-img-top" alt="Non-AC Room - 1 Double, 1 Single Bed">
+        <div class="card-body">
+          <h5 class="fw-semibold">Non-AC Room (1 Double + 1 Single Bed)</h5>
+          <p class="text-muted small mb-2">
+            Attached bathroom, cozy environment, great value stay without AC.
+          </p>
+          <p class="text-success fw-bold mb-3">Rs. 1000 / night</p>
+          <a href="/orders/checkout/" class="btn btn-outline-success w-100">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Room 3 -->
+    <div class="col">
+      <div class="card h-100 border-0 shadow-sm rounded-4 hover-card">
+        <img src="{% static 'images/vip-room.jpg' %}" class="card-img-top" alt="VIP Room - 2 Double Beds">
+        <div class="card-body">
+          <h5 class="fw-semibold">VIP Room (2 Double Beds + Dining)</h5>
+          <p class="text-muted small mb-2">
+            AC, attached bathroom, dining table — ideal for families or executives.
+          </p>
+          <p class="text-success fw-bold mb-3">Rs. 2500 / night</p>
+          <a href="/orders/checkout/" class="btn btn-outline-success w-100">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Room 4 -->
+    <div class="col">
+      <div class="card h-100 border-0 shadow-sm rounded-4 hover-card">
+        <img src="{% static 'images/basic-room.jpg' %}" class="card-img-top" alt="Basic Room - 2 Single Beds">
+        <div class="card-body">
+          <h5 class="fw-semibold">Basic Room (2 Single Beds)</h5>
+          <p class="text-muted small mb-2">
+            Non-AC, shared bathroom — budget-friendly for solo travelers or students.
+          </p>
+          <p class="text-success fw-bold mb-3">Rs. 800 / night</p>
+          <a href="/orders/checkout/" class="btn btn-outline-success w-100">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conference & Meeting Rooms -->
+  <h2 class="fw-bold text-center text-success mb-4">Conference & Meeting Spaces</h2>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+      <div class="card h-100 border-0 shadow-sm rounded-4 hover-card">
+        <img src="{% static 'images/conference-hall.jpg' %}" class="card-img-top" alt="Conference Hall">
+        <div class="card-body">
+          <h5 class="fw-semibold">Conference Hall (AC - 50 People)</h5>
+          <p class="text-muted small mb-2">
+            Spacious hall for events, seminars, or celebrations with air-conditioning.
+          </p>
+          <p class="text-success fw-bold mb-3">Rs. 2500 / session</p>
+          <a href="/orders/checkout/" class="btn btn-outline-success w-100">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 border-0 shadow-sm rounded-4 hover-card">
+        <img src="{% static 'images/meeting-room.jpg' %}" class="card-img-top" alt="Meeting Room">
+        <div class="card-body">
+          <h5 class="fw-semibold">Meeting Room (AC - 20 People)</h5>
+          <p class="text-muted small mb-2">
+            Perfect for private meetings or small gatherings — air-conditioned for comfort.
+          </p>
+          <p class="text-success fw-bold mb-3">Rs. 1000 / session</p>
+          <a href="/orders/checkout/" class="btn btn-outline-success w-100">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
