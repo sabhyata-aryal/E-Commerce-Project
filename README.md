@@ -77,7 +77,7 @@ Login using the superuser credentials.
 
 ## Payments
 
-The project integrates eSewa for payment simulation as well as COD (Cash on Delivery).
+The project integrates Khalti for payment simulation as well as COD (Cash on Delivery).
 
 ## License
 
